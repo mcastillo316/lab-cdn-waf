@@ -23,7 +23,7 @@ Resources:
   EfsStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: "https://cloudinglabv1.s3.amazonaws.com/efs.yml"
+      TemplateURL: "https://mytemplatescloudformation.s3.us-west-2.amazonaws.com/lab-cnd-waf/efs.yml"
       TimeoutInMinutes: 30
       Parameters: 
         PrivateSubnetId1: !Select [ 0, !Ref PrivateSubnets ]
@@ -34,7 +34,7 @@ Resources:
   LoadBalancerStack:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: "https://cloudinglabv1.s3.amazonaws.com/alb.yml"
+      TemplateURL: "https://mytemplatescloudformation.s3.us-west-2.amazonaws.com/lab-cnd-waf/alb.yml"
       TimeoutInMinutes: 30
       Parameters: 
         VPCId: !Ref VPCId
@@ -47,7 +47,7 @@ Resources:
       - LoadBalancerStack
       - EfsStack
     Properties: 
-      TemplateURL: "https://cloudinglabv1.s3.amazonaws.com/asg.yml"
+      TemplateURL: "https://mytemplatescloudformation.s3.us-west-2.amazonaws.com/lab-cnd-waf/asg.yml"
       TimeoutInMinutes: 30
       Parameters: 
         Ec2AmiId: !Ref Ec2AmiId
@@ -59,7 +59,7 @@ Resources:
   RDS:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: "https://cloudinglabv1.s3.amazonaws.com/rds.yml"
+      TemplateURL: "https://mytemplatescloudformation.s3.us-west-2.amazonaws.com/lab-cnd-waf/rds.yml"
       TimeoutInMinutes: 30
       Parameters:
         VPCId: !Ref VPCId
@@ -72,5 +72,5 @@ Resources:
     DependsOn: 
       - LoadBalancerStack
     Properties:
-      TemplateURL: "https://cloudinglabv1.s3.amazonaws.com/cloudfront.yml"
+      TemplateURL: "https://mytemplatescloudformation.s3.us-west-2.amazonaws.com/lab-cnd-waf/cloudfront.yml"
       TimeoutInMinutes: 30
