@@ -17,7 +17,7 @@ Parameters:
     Default: "aamirKP1"
   Ec2AmiId:
     Type: String
-    Default: "ami-02e136e904f3da870"
+    Default: "ami-013a129d325529d4d"
 
 Resources:
   EfsStack:
