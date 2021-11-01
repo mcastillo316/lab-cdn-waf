@@ -63,7 +63,7 @@ Resources:
       DatabaseName: !Ref DatabaseName
       MasterUsername: !Ref MasterUserName
       MasterUserPassword: '{{resolve:ssm-secure:RDS_PASSWORD:1}}'
-      StorageEncrypted: false
+     # StorageEncrypted: false
       PreferredBackupWindow: "06:59-07:29"
       PreferredMaintenanceWindow: "sun:00:01-sun:00:31"
       BackupRetentionPeriod: 7
